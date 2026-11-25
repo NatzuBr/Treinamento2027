@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+    --bg-page: #f1f5f9;
+    --bg-surface: #ffffff;
+    --bg-header: #f8fafc;
+    --text-main: #0f172a;
+    --text-muted: #64748b;
+    --border: #e2e8f0;
+    --accent: #0284c7;
+    --ok-bg: #f0fdf4;
+    --ok-border: #bbf7d0;
+    --ok-text: #166534;
+    --ok-badge: #16a34a;
+    --fail-bg: #fef2f2;
+    --fail-border: #fecaca;
+    --fail-text: #991b1b;
+    --fail-badge: #dc2626;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: radial-gradient(circle at top left, #e0f2fe 0%, var(--bg-page) 45%);
+    color: var(--text-main);
+    padding: 2.5rem 1rem;
+    line-height: 1.55;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1180px;
+    margin: 0 auto;
+    background: var(--bg-surface);
+    padding: 2.25rem;
+    border-radius: 16px;
+    box-shadow: 0 12px 32px rgba(15, 23, 42, 0.07);
+    border: 1px solid var(--border);
+    border-top: 5px solid var(--accent);
+}
+
+h1 {
+    font-size: 1.7rem;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    color: var(--text-main);
+    margin-bottom: 1.25rem;
+}
+
+h2 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--accent);
+    margin: 2.25rem 0 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+h2::before {
+    content: "";
+    display: inline-block;
+    width: 4px;
+    height: 1.1em;
+    background: var(--accent);
+    border-radius: 4px;
+}
+
+.resumo {
+    padding: 1rem 1.35rem;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 1.05rem;
+    margin-bottom: 1.5rem;
+}
+
+.resumo.sucesso {
+    background: linear-gradient(90deg, #dcfce7 0%, #f0fdf4 100%);
+    color: var(--ok-text);
+    border: 1px solid var(--ok-border);
+    border-left: 5px solid var(--ok-badge);
+}
+
+.resumo.falha {
+    background: linear-gradient(90deg, #fee2e2 0%, #fef2f2 100%);
+    color: var(--fail-text);
+    border: 1px solid var(--fail-border);
+    border-left: 5px solid var(--fail-badge);
+}
+
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: 0.86rem;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+    font-variant-numeric: tabular-nums;
+}
+
+thead th {
+    background: var(--bg-header);
+    color: var(--text-muted);
+    font-size: 0.74rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.85rem 0.9rem;
+    border-bottom: 1px solid var(--border);
+    text-align: left;
+}
+
+tbody td {
+    padding: 0.8rem 0.9rem;
+    border-bottom: 1px solid var(--border);
+    vertical-align: middle;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+tbody tr {
+    transition: filter 0.15s ease;
+}
+
+tbody tr:hover {
+    filter: brightness(0.97);
+}
+
+tr.ok-row {
+    background: var(--ok-bg);
+}
+
+tr.fail-row {
+    background: var(--fail-bg);
+}
+
+th:last-child,
+td:last-child {
+    text-align: center;
+}
+
+code {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    background: rgba(15, 23, 42, 0.06);
+    color: #334155;
+    padding: 0.15rem 0.45rem;
+    border-radius: 5px;
+    font-size: 0.82em;
+    white-space: pre;
+}
+
+.badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 0.74rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #ffffff;
+}
+
+.badge-ok {
+    background: var(--ok-badge);
+    box-shadow: 0 2px 6px rgba(22, 163, 74, 0.25);
+}
+
+.badge-fail {
+    background: var(--fail-badge);
+    box-shadow: 0 2px 6px rgba(220, 38, 38, 0.25);
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 1.25rem;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+}

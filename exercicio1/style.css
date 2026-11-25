@@ -1,0 +1,227 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+    --bg-pagina: #f4efe8;
+    --bg-card: #ffffff;
+    --bg-suave: #faf7f2;
+    --cafe-escuro: #2c1e16;
+    --cafe-medio: #6f4e37;
+    --cafe-claro: #e9dfd5;
+    --texto-secundario: #6e6259;
+    --borda: #e6dcd1;
+    --verde-total: #1b7a43;
+    --sombra: 0 10px 30px rgba(44, 30, 22, 0.08);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: linear-gradient(135deg, #f6f1ea 0%, #ebe2d6 100%);
+    color: var(--cafe-escuro);
+    padding: 2.5rem 1rem;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: var(--bg-card);
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: var(--sombra);
+    border-top: 6px solid var(--cafe-medio);
+}
+
+/* Cabeçalho */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding-bottom: 1.5rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--borda);
+}
+
+h1 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--cafe-escuro);
+}
+
+h2 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--cafe-medio);
+    margin: 2rem 0 0.85rem;
+}
+
+.cliente-badge {
+    background: var(--cafe-claro);
+    color: var(--cafe-escuro);
+    padding: 0.5rem 1rem;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: 1px solid #dccab8;
+}
+
+/* Tabela de itens */
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 1px solid var(--borda);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 2rem;
+}
+
+thead th {
+    background: var(--bg-suave);
+    color: var(--texto-secundario);
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 0.9rem 1rem;
+    border-bottom: 1px solid var(--borda);
+    text-align: left;
+}
+
+tbody td {
+    padding: 0.95rem 1rem;
+    border-bottom: 1px solid #f0e8df;
+    font-size: 0.95rem;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+tbody tr:hover {
+    background-color: #fcfaf7;
+}
+
+th:nth-child(2),
+th:nth-child(3),
+th:nth-child(4),
+td:nth-child(2),
+td:nth-child(3),
+td:nth-child(4) {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+}
+
+td:nth-child(4) {
+    font-weight: 600;
+    color: var(--cafe-escuro);
+}
+
+/* Cards de resumo */
+.grid-resumo {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.25rem;
+    margin-bottom: 1.5rem;
+}
+
+.card {
+    background: var(--bg-suave);
+    border: 1px solid var(--borda);
+    border-radius: 12px;
+    padding: 1.25rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(44, 30, 22, 0.06);
+}
+
+.card h2 {
+    margin: 0 0 1rem;
+    font-size: 0.9rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--borda);
+}
+
+.card ul {
+    list-style: none;
+}
+
+.card li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.45rem 0;
+    font-size: 0.9rem;
+    border-bottom: 1px dashed #e2d6c8;
+    font-variant-numeric: tabular-nums;
+}
+
+.card li span:first-child {
+    color: var(--texto-secundario);
+}
+
+.card li span:last-child {
+    font-weight: 600;
+    color: var(--cafe-escuro);
+}
+
+.card li:last-child {
+    border-bottom: none;
+}
+
+.total-destaque {
+    margin-top: 0.4rem;
+    padding-top: 0.75rem !important;
+    border-top: 2px solid var(--borda);
+    font-size: 1.05rem !important;
+    color: var(--verde-total);
+}
+
+/* Resumo Heredoc */
+.resumo-heredoc {
+    background: linear-gradient(90deg, #f3e9de 0%, #faf5ef 100%);
+    border-left: 4px solid var(--cafe-medio);
+    padding: 1.1rem 1.25rem;
+    border-radius: 0 10px 10px 0;
+    font-weight: 500;
+    color: var(--cafe-escuro);
+}
+
+/* Blocos de var_dump */
+pre {
+    background: #1c1917;
+    color: #e7e5e4;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    padding: 1.25rem;
+    border-radius: 10px;
+    overflow-x: auto;
+    border: 1px solid #2e2926;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 1.25rem;
+    }
+
+    th, td {
+        padding: 0.65rem 0.5rem;
+        font-size: 0.85rem;
+    }
+}

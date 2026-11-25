@@ -1,0 +1,238 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+    --bg-page: #f4f6f8;
+    --bg-surface: #ffffff;
+    --bg-subtle: #f8fafc;
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --border: #e2e8f0;
+    --accent: #7c2d12;       /* Tom vinho/bistrô francês */
+    --accent-soft: #fff7ed;
+    --ok-bg: #f0fdf4;
+    --ok-border: #bbf7d0;
+    --ok-text: #166534;
+    --ok-badge: #16a34a;
+    --fail-bg: #fef2f2;
+    --fail-border: #fecaca;
+    --fail-text: #991b1b;
+    --fail-badge: #dc2626;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: linear-gradient(135deg, #f8fafc 0%, #eef2f6 100%);
+    color: var(--text-main);
+    padding: 2.5rem 1rem;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1050px;
+    margin: 0 auto;
+    background: var(--bg-surface);
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 12px 32px rgba(15, 23, 42, 0.07);
+    border: 1px solid var(--border);
+    border-top: 6px solid var(--accent);
+}
+
+h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    color: var(--text-main);
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+}
+
+h2 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--accent);
+    margin: 2.25rem 0 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+h2::before {
+    content: "";
+    display: inline-block;
+    width: 4px;
+    height: 1.1em;
+    background: var(--accent);
+    border-radius: 4px;
+}
+
+h3 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin: 1.25rem 0 0.6rem;
+}
+
+p {
+    color: var(--text-main);
+    margin-bottom: 0.75rem;
+}
+
+/* Avisos de lista vazia ou sem ativos */
+.aviso {
+    background: var(--accent-soft);
+    border: 1px solid #fed7aa;
+    border-left: 4px solid var(--accent);
+    color: var(--accent);
+    padding: 1rem 1.25rem;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+/* Listas de resumo */
+ul {
+    list-style: none;
+    background: var(--bg-subtle);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 1rem;
+}
+
+ul li {
+    padding: 0.5rem 0;
+    border-bottom: 1px dashed var(--border);
+    font-size: 0.94rem;
+    font-variant-numeric: tabular-nums;
+}
+
+ul li:last-child {
+    border-bottom: none;
+}
+
+/* Tabelas */
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    font-size: 0.9rem;
+    font-variant-numeric: tabular-nums;
+    margin-bottom: 1.5rem;
+}
+
+thead th {
+    background: var(--bg-subtle);
+    color: var(--text-muted);
+    font-size: 0.76rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.9rem 1rem;
+    border-bottom: 1px solid var(--border);
+    text-align: left;
+}
+
+tbody td {
+    padding: 0.85rem 1rem;
+    border-bottom: 1px solid var(--border);
+    vertical-align: middle;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+tbody tr:hover {
+    background-color: #f8fafc;
+}
+
+/* Estilo das linhas de produtos inativos */
+tr.inativo {
+    background-color: #f1f5f9;
+    color: #94a3b8;
+    font-style: italic;
+}
+
+tr.inativo td:first-child {
+    text-decoration: line-through;
+}
+
+tr.inativo:hover {
+    background-color: #e2e8f0;
+}
+
+/* Seção de testes */
+.resumo {
+    padding: 0.95rem 1.25rem;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.resumo.sucesso {
+    background: linear-gradient(90deg, #dcfce7 0%, #f0fdf4 100%);
+    color: var(--ok-text);
+    border: 1px solid var(--ok-border);
+    border-left: 5px solid var(--ok-badge);
+}
+
+.resumo.falha {
+    background: linear-gradient(90deg, #fee2e2 0%, #fef2f2 100%);
+    color: var(--fail-text);
+    border: 1px solid var(--fail-border);
+    border-left: 5px solid var(--fail-badge);
+}
+
+tr.ok-row {
+    background: var(--ok-bg);
+}
+
+tr.fail-row {
+    background: var(--fail-bg);
+}
+
+.badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.badge-ok {
+    background: var(--ok-badge);
+    color: #ffffff;
+}
+
+.badge-fail {
+    background: var(--fail-badge);
+    color: #ffffff;
+}
+
+@media (max-width: 720px) {
+    .container {
+        padding: 1.25rem;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+}
